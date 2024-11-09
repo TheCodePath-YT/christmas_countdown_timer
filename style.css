@@ -1,0 +1,181 @@
+/* Full screen, colorful animated background */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM9tucTH4eiciLRvSTrqyNSyxu36F9Qtfr1A&s");
+    /* url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT34YgmUPOcOOOJUjf9Z4c0j7q1VbL_nFx0fg&s"); */
+    animation: backgroundAnimation 15s ease-in-out infinite;
+    z-index: -2;
+    opacity: 0.8;
+    
+    
+}
+
+/* Background animation */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Container styling */
+.container {
+    text-align: center;
+    width:fit-content;
+    height:fit-content;
+    padding: 10px 0px;
+    color: #fff;
+    z-index: 2; 
+   position: fixed;
+   opacity: 0.7;
+   border-radius: 10px 40px;
+    background-color: rgb(232, 232, 232);  
+   /* background: linear-gradient(180deg,red,brown,orange,white,yellow,red); */
+   box-shadow:inset 0px 3px 3px 3px #f3f38d;
+     
+}
+
+/* Christmas tree styling */
+#tree-container {
+    margin: 10px auto;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+     background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8sOhcLlQO1sp4HSzmkVbraQkdcjeRPzQPMA&s")
+      /* background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaEhFRnonYnBqtw6n-FkhmD4fv0AmfLLahDQ&s"); */
+   ;
+}
+.container h1{
+    color: rgb(27, 1, 1);
+    font-weight: 900;
+    font-size: 3rem;
+    text-transform: uppercase;
+
+}
+.container p{
+    text-decoration: underline;
+    color: rgb(19, 19, 17);
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+.tree {
+    width: 0;
+    height: 0;
+    border-left: 55px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid rgb(170, 254, 170);
+    position: relative;
+    margin: 0 auto;
+    margin-top: 130px;
+    animation: bounce 1s ease infinite;
+       }
+
+.tree:before {
+    content: "";
+    position: absolute;
+    top: -70px;
+    left: -25px;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid rgb(228, 254, 78);
+}
+
+.tree:after {
+    content: "";
+    position: absolute;
+    top: -120px;
+    left: -12px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 30px solid rgb(216, 230, 216);
+}
+
+.tree::marker {
+    content: '⭐';
+    font-size: 1.5rem;
+    color: gold;
+    position: absolute;
+    top: -150px;
+    left: -12px;
+    animation: twinkle 0.8s ease alternate infinite;
+}
+
+/* Countdown text */
+#christmas-countdown {
+    font-size: 2rem;
+    animation: pulse 1s infinite;
+    color: rgb(21, 21, 1);
+    font-weight: 800;
+    /* background:linear-gradient(350deg,#c6ff00,white,rgb(157, 237, 157),darkgreen,white); */
+    width: 80%;
+    margin: auto;
+    margin-top: 50vh !important;
+    position: relative;
+    border-radius: 2rem;
+    background-color: rgb(238, 234, 241);
+    box-shadow: 0px 2px 3px 4px rgb(224, 225, 222);
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.7; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Full screen fireworks overlay */
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+.timer{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15px auto;
+    margin-top: 13vh;
+    align-items: center;
+    font-size: 2rem;
+
+}
+.timer div{
+    width: fit-content;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+   
+  
+}
